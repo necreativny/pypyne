@@ -1,5 +1,4 @@
 from pathlib import Path
-from dataclasses import field
 
 from pynecore.core.ohlcv_file import OHLCVReader
 

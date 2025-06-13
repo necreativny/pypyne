@@ -28,7 +28,7 @@ from zoneinfo import ZoneInfo
 # tz and last_bar_index are hardcoded to match desired parameters and return values
 def fork_runner(script_path: Path,
                 ohlcv_iter: Iterable[OHLCV],
-                script_inputs: dict[str, Any],
+                script_inputs: dict[str, Any] = {},
                 on_progress: Callable[[datetime], None] | None = None) \
             -> Iterator[tuple[OHLCV, dict[str, Any]] | tuple[OHLCV, dict[str, Any], list['Trade']]]:
         """
@@ -36,6 +36,7 @@ def fork_runner(script_path: Path,
 
         :param script_path: The path to the script to run
         :param ohlcv_iter: Iterator of OHLCV data
+        :param script_inputs: Inputs to pass to pyne script: {"src": "close", "length": 20,}
         :param on_progress: Callback to call on every iteration
         :return: Return a dictionary with all data the sctipt plotted
         :raises AssertionError: If the 'main' function does not return a dictionary
