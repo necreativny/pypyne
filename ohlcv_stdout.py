@@ -7,7 +7,7 @@ from custom_script_runner import fork_runner
 
 
 script_path = Path("./scripts/demo_pyne.py")
-data_path = "./data/ccxt_BYBIT_BTC_USDT_60.csv"
+data_path = "./data/ccxt_BYBIT_BTC_USDT_60.ohlcv"
 
 def main():
     with OHLCVReader(data_path) as reader:
