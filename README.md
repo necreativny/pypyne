@@ -3,6 +3,16 @@ it's a dirty patch for [pynecore](https://github.com/PyneSys/pynecore) to run it
 
 to use it, put `custom_script_runner.py` in your project and import/use like in examples(pynecore should be installed properly, it's a patch on top of pynecore)
 
+# custom_script_runner_preload_script.py
+This is another version of `custom_script_runner` that you use if you want to pre-load pyne-indicator and then just run it.
+You use it like this:
+```python
+from custom_script_runner_preload_script import fork_runner, import_script
+
+script_module = import_script(indic_path)
+fork_runner(script_module, ohlcv_iter, inputs)
+```
+
 # examples
 Examples naming: <input_option>_<output_option>.py
 * ohlcv_stdout.py -- simplest example, shows when you want to read data from ohlcv file but control the output
