@@ -25,6 +25,7 @@ def main(
     fast_ema = ta.ema(src, fast_length)
     slow_ema = ta.ema(src, slow_length)
 
-    # Plot our indicators
-    plot(fast_ema, title="Fast EMA", color=color.blue)
-    plot(slow_ema, title="Slow EMA", color=color.red)
+    return{
+        "Fast EMA": fast_ema,
+        "Slow EMA": slow_ema
+    }

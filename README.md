@@ -13,11 +13,16 @@ script_module = import_script(indic_path)
 fork_runner(script_module, ohlcv_iter, inputs)
 ```
 
+# chart_runner.py
+This is the third version for running multiple indicators on same ohlcv_iter.
+
 # examples
 Examples naming: <input_option>_<output_option>.py
 * ohlcv_stdout.py -- simplest example, shows when you want to read data from ohlcv file but control the output
 * csv_stdout.py -- example that shows how to use it with custom input and custom output. Shows how to create iterator to pass custom input data
+* multi_indic_ohlcv_stdout.py -- chart_runner usage example
 
 # notes:
+* with `chart_runner` using `plot()` in scripts will not work because i removed `lib._plot_data.update(res)`, and instead return directly in `execute_script_bar()` (just for simplicity, technically would exist there just fine)
 * last_bar_index most likely doesn't work properly (in fork_runner it's inited with 0 when it should be inited with input data size)
 * `custom_script_runner.py` is a copy of pynecores src/pynecore/core/script_runner with added `fork_runner` func
